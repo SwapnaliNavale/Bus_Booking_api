@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "3bca705b-9561-4294-84f9-cc82431b32af",
+		"name": "Booking_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48512210",
+		"_collection_link": "https://swapnalinavale0-1014189.postman.co/workspace/5c1740e1-97ad-4d36-842d-9716c06c5cce/collection/48512210-3bca705b-9561-4294-84f9-cc82431b32af?action=share&source=collection_link&creator=48512210"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": []
+		},
+		{
+			"name": "Resources",
+			"item": []
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Get reservation by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTgxMjAzOTAsImV4cCI6MTc1ODIwNjc5MCwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwidXNlcl9pZCI6NH0.tWspODVtDc77v2JfPQUNbdkwHX0yd0cccNEx-whXoeBL-29Z35q1p7QvuEzYT_VBDN8ULL8zTt3eVnbiqESk4A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reservations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImlhdCI6MTc1ODEyMDUyNSwiZXhwIjoxNzU4MjA2OTI1LCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsInVzZXJfaWQiOjF9.jQK7aeoEjO6oJLntDF52AzqyQf8OeatfeRnjrS0L8GMPfG59np4wZrL4kKDMLU6_w7nFEKqHlyMaEIyROYCpfw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTgxMjAzOTAsImV4cCI6MTc1ODIwNjc5MCwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwidXNlcl9pZCI6NH0.tWspODVtDc77v2JfPQUNbdkwHX0yd0cccNEx-whXoeBL-29Z35q1p7QvuEzYT_VBDN8ULL8zTt3eVnbiqESk4A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 1000.00,\r\n  \"status\": \"CONFIRMED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/4",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImlhdCI6MTc1ODEyMDUyNSwiZXhwIjoxNzU4MjA2OTI1LCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsInVzZXJfaWQiOjF9.jQK7aeoEjO6oJLntDF52AzqyQf8OeatfeRnjrS0L8GMPfG59np4wZrL4kKDMLU6_w7nFEKqHlyMaEIyROYCpfw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
