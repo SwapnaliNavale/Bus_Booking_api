@@ -4,20 +4,367 @@
 		"name": "Booking_Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48512210",
-		"_collection_link": "https://swapnalinavale0-1014189.postman.co/workspace/5c1740e1-97ad-4d36-842d-9716c06c5cce/collection/48512210-3bca705b-9561-4294-84f9-cc82431b32af?action=share&source=collection_link&creator=48512210"
+		"_collection_link": "https://swapnalinavale0-1014189.postman.co/workspace/swapnali-navale's-Workspace~5c1740e1-97ad-4d36-842d-9716c06c5cce/collection/48512210-3bca705b-9561-4294-84f9-cc82431b32af?action=share&source=collection_link&creator=48512210"
 	},
 	"item": [
 		{
 			"name": "Authentication",
-			"item": []
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Swapnali\",\r\n  \"lastName\": \"Navale\",\r\n  \"email\": \"admin1@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"confirmPassword\": \"123456\",\r\n  \"dob\": \"1999-05-05\",\r\n  \"mobileNo\": 9876543219,\r\n  \"age\": 25,\r\n  \"role\": \"ROLE_ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/signup",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"User@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Resources",
-			"item": []
+			"item": [
+				{
+					"name": "Create Resources",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTgwOTMzOTEsImV4cCI6MTc1ODE3OTc5MSwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwidXNlcl9pZCI6NH0.rw8b0cY-WDIDLc2LEfs8UmSIWHPxdzlLcIgS6zBUv6zrAfG_zlr29NG58FE0KeR36kdq6DtF0KtG5AAEfvTGzg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pune-Mumbai Bus\",\r\n  \"type\": \"AC Sleeper\",\r\n  \"capacity\": 40,\r\n  \"active\": true,\r\n  \"description\": \"Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/resources",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"resources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resource by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImlhdCI6MTc1ODExNjcyMiwiZXhwIjoxNzU4MjAzMTIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsInVzZXJfaWQiOjF9.BwjoJP17vuWjJeU9DGYcNVy4q9EIZh5gYyxy_NhHT6MZ-vRdGI78HWrIg_loTjdsKf1ug--p5dtCuLteJgH83Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 500.00,\r\n  \"status\": \"PENDING\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/resources/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"resources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Resources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Visualization Script",
+									"// Visualization Script",
+									"const template = `",
+									"<style>",
+									"  table { border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; }",
+									"  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }",
+									"  th { background-color: #f2f2f2; }",
+									"  tr:nth-child(even) { background-color: #f9f9f9; }",
+									"</style>",
+									"<table>",
+									"  <thead>",
+									"    <tr>",
+									"      <th>ID</th>",
+									"      <th>Name</th>",
+									"      <th>Type</th>",
+									"      <th>Capacity</th>",
+									"      <th>Active</th>",
+									"    </tr>",
+									"  </thead>",
+									"  <tbody>",
+									"    {{#each response.data.content}}",
+									"    <tr>",
+									"      <td>{{id}}</td>",
+									"      <td>{{name}}</td>",
+									"      <td>{{type}}</td>",
+									"      <td>{{capacity}}</td>",
+									"      <td>{{#if active}}Yes{{else}}No{{/if}}</td>",
+									"    </tr>",
+									"    {{/each}}",
+									"  </tbody>",
+									"</table>",
+									"`;",
+									"",
+									"function createPayload() {",
+									"  const jsonData = pm.response.json();",
+									"  return { response: jsonData };",
+									"}",
+									"",
+									"pm.visualizer.set(template, createPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImlhdCI6MTc1ODExNjcyMiwiZXhwIjoxNzU4MjAzMTIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsInVzZXJfaWQiOjF9.BwjoJP17vuWjJeU9DGYcNVy4q9EIZh5gYyxy_NhHT6MZ-vRdGI78HWrIg_loTjdsKf1ug--p5dtCuLteJgH83Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 500.00,\r\n  \"status\": \"PENDING\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/resources",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"resources"
+							]
+						},
+						"description": "Purpose: Fetches all available resources.\n\nMethod: GET\n\nURL: http://localhost:8080/resources\n\nDescription: Returns a paginated list of resources with details such as id, name, type, capacity, and active status. The response is visualized as a table in the Visualize tab.\n\nResponse Example:\n```\n{\n  \"timeStamp\": \"2025-09-17T19:35:42.6248551\",\n  \"status\": \"success\",\n  \"message\": \"Resources fetched successfully\",\n  \"data\": {\n    \"content\": [\n      {\n        \"id\": 2,\n        \"name\": \"Pune-Mumbai Bus\",\n        \"type\": \"AC Sleeper\",\n        \"capacity\": 40,\n        \"active\": true\n      },\n      {\n        \"id\": 1,\n        \"name\": \"Pune-Mumbai Bus\",\n        \"type\": \"AC Sleeper\",\n        \"capacity\": 40,\n        \"active\": true\n      }\n    ],\n    \"pageable\": {\n      \"pageNumber\": 0,\n      \"pageSize\": 10,\n      \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n      },\n      \"offset\": 0,\n      \"paged\": true,\n      \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 2,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 2,\n    \"empty\": false\n  }\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Resource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTgxMTk1NDQsImV4cCI6MTc1ODIwNTk0NCwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwidXNlcl9pZCI6NH0.x3gVvsh-qMlQNq-uQW-2Llx_fUBwf8fNAXuYgdPqg_U9SVDnMGpKzLZM46tPbAjEMjyP7b0txbwtCv5vcEpWWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Bengaluru-Mumbai Bus\",\r\n  \"type\": \"AC Sleeper\",\r\n  \"capacity\": 40,\r\n  \"active\": true,\r\n  \"description\": \"Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/resources/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"resources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Resource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTgxMTk1NDQsImV4cCI6MTc1ODIwNTk0NCwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOIiwidXNlcl9pZCI6NH0.x3gVvsh-qMlQNq-uQW-2Llx_fUBwf8fNAXuYgdPqg_U9SVDnMGpKzLZM46tPbAjEMjyP7b0txbwtCv5vcEpWWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 500.00,\r\n  \"status\": \"PENDING\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/resources/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"resources",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Reservations",
 			"item": [
+				{
+					"name": "Create Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImlhdCI6MTc1ODExNjcyMiwiZXhwIjoxNzU4MjAzMTIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsInVzZXJfaWQiOjF9.BwjoJP17vuWjJeU9DGYcNVy4q9EIZh5gYyxy_NhHT6MZ-vRdGI78HWrIg_loTjdsKf1ug--p5dtCuLteJgH83Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"price\": 1000.00,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"seatsBooked\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Get reservation by id",
 					"request": {
@@ -90,7 +437,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 1000.00,\r\n  \"status\": \"CONFIRMED\"\r\n}",
+							"raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2025-09-18T10:00:00Z\",\r\n  \"endTime\": \"2025-09-18T12:00:00Z\",\r\n  \"price\": 1000.00,\r\n  \"status\": \"CONFIRMED\",\r\n  \"seatsBooked\": 20\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,13 +445,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/reservations/4",
+							"raw": "{{baseURL}}/reservations/5",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"reservations",
-								"4"
+								"5"
 							]
 						}
 					},
